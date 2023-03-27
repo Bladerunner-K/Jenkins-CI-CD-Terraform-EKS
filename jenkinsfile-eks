@@ -12,15 +12,15 @@ pipeline {
                 }
             }
         }
-       // stage("Deploy Nginx workload to EKS") {
-           // steps {
-               // script {
-                  //  dir('kubernetes') {
-                  //      sh "aws eks update-kubeconfig --name myapp-eks-cluster"
-                //        sh "kubectl apply -f nginx.yaml"
-              //      }
-            //    }
-          //  }
-        //}
+        stage("Deploy Nginx workload to EKS") {
+            steps {
+                script {
+                    dir('kubernetes') {
+                        sh "aws eks update-kubeconfig --name myapp-eks-cluster"
+                        sh "kubectl apply -f nginx.yaml"
+                    }
+                }
+            }
+        }
     }
 }
